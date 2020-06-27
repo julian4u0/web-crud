@@ -1,1 +1,42 @@
 /* You can add global styles to this file, and also import other style files */
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+.left-panel{
+    background-color: rgb(234, 230, 255);
+    width: 30vw;
+    height: 100vh;
+}.right-panel{
+    background-color: white;
+    width: 70vw;
+    height: auto;   
+}
+.container{
+  display: flex;
+}
+.container-child{
+    padding: 20px;
+}
+.table-width{
+    width: 100%;
+    margin-top: 100px;
+}
+.title{
+    width: 100%;
+    margin-bottom: 15vh;
+}
+
+@media (max-width:960px) { 
+    .left-panel{
+        background-color: rgb(234, 230, 255);
+        width: 100vw;
+        height: auto;
+    }.right-panel{
+        background-color: white;
+        width: 100%;
+        height: auto;   
+    }
+    .container{
+      display: block;
+    }
+} 

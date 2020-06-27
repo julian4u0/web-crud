@@ -1,0 +1,40 @@
+<div class="container-parent">
+  <div class="register-panel">
+    <h2>Registrarte</h2>
+    <form [formGroup]="registerForm" (ngSubmit)="register(registerForm.value)">
+      <mat-form-field class="example-full-width">
+        <mat-label> Correo electronico </mat-label>
+        <input matInput required type="email" formControlName="email">
+      </mat-form-field>
+      <br>
+      <mat-form-field class="example-full-width">
+        <mat-label> Contraseña </mat-label>
+        <input matInput required formControlName="password">
+      </mat-form-field>
+      <br>
+      <p style="color:red;">{{registerError}}</p>
+
+      <button type="submit" mat-raised-button color="accent">Siguiente</button>
+    </form>
+
+
+  </div>
+  <div class="login-panel">
+    <h2>Iniciar sesión</h2>
+    <form [formGroup]="loginForm" (ngSubmit)="login(loginForm.value)">
+      <mat-form-field class="example-full-width">
+        <mat-label> Correo electronico </mat-label>
+        <input matInput required formControlName="email">
+      </mat-form-field>
+      <br>
+      <mat-form-field class="example-full-width">
+        <mat-label> Contraseña </mat-label>
+        <input matInput required formControlName="password">
+      </mat-form-field>
+      <br>
+      <p style="color:red;">{{loginError}}</p>
+
+      <button type="submit" mat-raised-button color="accent">Siguiente</button>
+    </form>
+  </div>
+</div>

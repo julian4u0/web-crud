@@ -1,0 +1,121 @@
+<mat-toolbar color="primary">
+  <mat-toolbar-row class="header">
+    <span>App de tareas</span>
+    <button style="float: right;" (click)="exit()" mat-raised-button color="warn">Salir</button>
+
+  </mat-toolbar-row>
+
+
+</mat-toolbar>
+
+<div class="container">
+  <div class="left-panel">
+    <div class="container-child">
+      <h4>Tareas por vencerse</h4>
+
+      <div *ngFor="let task of dataSource">
+        <div *ngIf="calculateDiff(task.expire) > 0; else expired">
+          <div *ngIf="calculateDiff(task.expire) < 24 &&  task.priority  === 'a' ">
+            <div style="margin: 10px; background-color: red; padding: 10px;">
+              {{task.name}}
+              <br>
+              <p style="color: white;">Faltan {{calculateDiff(task.expire)}} Horas</p>
+
+            </div>
+          </div>
+          <div *ngIf="calculateDiff(task.expire) < 24 &&  task.priority  === 'b'">
+
+            <div style="margin: 10px; background-color: orange; padding: 10px;">
+              {{task.name}}
+              <br>
+              <p style="color: white;">Faltan {{calculateDiff(task.expire)}} Horas</p>
+
+            </div>
+          </div>
+          <div *ngIf="calculateDiff(task.expire) > 24  || task.priority  === 'c' ">
+
+            <div style="margin: 10px; background-color: white; padding: 10px;">
+              {{task.name}}
+              <br>
+              <p style="color: gray">Faltan {{calculateDiff(task.expire)}} Horas</p>
+
+            </div>
+
+          </div>
+
+
+        </div>
+        <ng-template #expired>
+          <div style="margin: 10px; background-color: rgb(172, 172, 172); padding: 10px;">
+            {{task.name}}
+            <br>
+            <p style="color: rgb(56, 56, 56);"> Esta tarea se venció hace {{ -1 * calculateDiff(task.expire)}} horas</p>
+
+          </div>
+        </ng-template>
+
+      </div>
+
+    </div>
+  </div>
+  <div class="right-panel">
+    <div class="container-child">
+      <div class="title">
+        <h2 style="float: left;">Tus tareas</h2>
+        <button routerLink="/newtask" style="float: right;" mat-raised-button color="accent">Agregar nueva
+          tarea</button>
+
+      </div>
+      <div>
+        <mat-table [dataSource]="dataSource" class="mat-elevation-z8 table-width">
+
+          <ng-container matColumnDef="Prioridad">
+            <mat-header-cell *matHeaderCellDef> Prioridad </mat-header-cell>
+            <mat-cell *matCellDef="let element">
+              <p *ngIf="element.priority === 'a' " style="color: red;"> Muy importante</p>
+              <p *ngIf="element.priority === 'b' " style="color: orange;"> Normal</p>
+              <p *ngIf="element.priority === 'c' " style="color: rgb(91, 160, 59);"> Poco Importante</p>
+
+
+
+            </mat-cell>
+
+          </ng-container>
+
+          <!-- Name Column -->
+          <ng-container matColumnDef="Nombre">
+            <mat-header-cell *matHeaderCellDef> Nombre </mat-header-cell>
+            <mat-cell *matCellDef="let element"> {{element.name}} </mat-cell>
+          </ng-container>
+
+          <!-- Symbol Column -->
+          <ng-container matColumnDef="Vencimiento">
+            <mat-header-cell *matHeaderCellDef> Vencimiento </mat-header-cell>
+            <mat-cell *matCellDef="let element">{{element.expire | date }} </mat-cell>
+          </ng-container>
+
+          <ng-container matColumnDef="Opciones">
+            <mat-header-cell *matHeaderCellDef> Opciones </mat-header-cell>
+            <mat-cell *matCellDef="let element">
+              <button (click)="edit(element._id, element.name, element.priority, element.expire)"
+                style="margin-right: 5px;" mat-raised-button color="primary">Editar</button>
+              <button (click)="delete(element._id)" mat-raised-button color="warn">Borrar </button></mat-cell>
+
+          </ng-container>
+
+
+
+
+          <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+          <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+        </mat-table>
+      </div>
+
+
+
+    </div>
+
+
+  </div>
+
+</div>

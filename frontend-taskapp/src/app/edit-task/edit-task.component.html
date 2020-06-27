@@ -1,0 +1,34 @@
+<div class="container-parent">
+    <div class="edittask-panel">
+        <h2>Actualizar tarea</h2>
+        <form [formGroup]="taskForm" (ngSubmit)="updateTask(taskForm.value)">
+            <mat-form-field class="example-full-width">
+                <mat-label> Nombre</mat-label>
+                <input style="width: 50vw;" matInput required formControlName="name">
+            </mat-form-field>
+            <br>
+
+            <div>
+                <p> Prioridad</p>
+                <mat-radio-group aria-label="Prioridad" matInput formControlName="priority">
+                    <mat-radio-button value="a">Muy Importante</mat-radio-button>
+                    <mat-radio-button value="b">Normal</mat-radio-button>
+                    <mat-radio-button value="c">Poco Importante</mat-radio-button>
+                </mat-radio-group>
+
+            </div>
+            <br>
+
+            <mat-form-field appearance="fill">
+                <mat-label>Fecha de vencimiento</mat-label>
+                <input matInput [matDatepicker]="picker" formControlName="expire">
+                <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                <mat-datepicker #picker></mat-datepicker>
+            </mat-form-field>
+
+            <br>
+
+            <button type="submit" mat-raised-button color="accent">Siguiente</button>
+        </form>
+    </div>
+</div>

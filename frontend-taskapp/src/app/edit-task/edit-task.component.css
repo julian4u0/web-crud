@@ -1,0 +1,11 @@
+.container-parent{
+    height: 100%;
+    background-color: rgb(218, 153, 255);
+    display: flex;
+    padding: 30px;
+}
+.edittask-panel{
+    width: 100%;
+    background-color: rgb(226, 176, 255);
+    padding: 70px;
+}

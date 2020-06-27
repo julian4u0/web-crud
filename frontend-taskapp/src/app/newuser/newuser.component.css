@@ -1,0 +1,18 @@
+.container-parent{
+    height: 100%;
+    background-color: rgb(218, 153, 255);
+    display: flex;
+    padding: 30px;
+}
+.register-panel{
+    width: 50%;
+    background-color: rgb(226, 176, 255);
+    padding: 40px;
+}
+
+.login-panel{
+    width: 50%;
+    background-color: rgb(211, 136, 255);
+    padding: 40px;
+
+}

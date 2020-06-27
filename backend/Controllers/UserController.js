@@ -1,4 +1,4 @@
-const mongoose = require("mongoose")
+
 const User = require("../Models/UserModel");
 
 let userController = {
@@ -6,11 +6,10 @@ let userController = {
     // Registro de Usuario
     createUser: async (req, res, e) => {
 
-        console.log(req.body)
 
         const { email, password } = req.body;
 
-        const mynewuser = findUserWithEmail(email);
+        const mynewuser = await findUserWithEmail(email);
 
         if (mynewuser) {
             res.status(200).send(status(false, "Correo en uso"))
@@ -66,7 +65,6 @@ async function findUserWithEmail(email) {
                 // No se encontró entonces resolvemos con false
                 res(false);
             }
-            console.log(data)
             //Aca con los datos
             res(data);
         })

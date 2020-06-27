@@ -1,7 +1,6 @@
 const express = require('express');
-const routes = require('./Routes/UserRoute')
 const mongoose = require('mongoose');
-const router = require('./Routes/UserRoute');
+const router = require('./Routes/AppRoutes');
 
 const app = express();
 
@@ -13,7 +12,7 @@ mongoose.connect("mongodb+srv://dbUsuario:dbContraseña@tareas.lbazp.mongodb.net
     app.listen(7001, () => {
         console.log("Servidor corriendo en http://localhost:7001/")
         app.use(express.json());
-        app.use(router);
+        app.use("/api", router);
     });
 
 }).catch((error) => {
