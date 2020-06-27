@@ -2,7 +2,7 @@
 
 _Mi Aplicacion para el trabajo como Web Developer_
 
-## Comenzando 🚀
+## Instalación e implementación  🔧
 
 _Las siguientes instrucciones son para facilitar la instalación y ejecución de la aplicación_
 
