@@ -24,7 +24,7 @@ _Si la conexión fue correcta ahora ejecutar los siguientes comandos en la carpe
 npm install
 ```
 
-_Y para empezar la app en angular no utilizaremos_ **ng serve** _sino el siguiente comando_
+_Y para empezar la app en angular no utilizaremos **ng serve** sino el siguiente comando para ejecutar con la configuracion de proxy_
 ```
 npm start
 ```
