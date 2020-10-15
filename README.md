@@ -1,6 +1,3 @@
-# Job Application
-
-_Mi Aplicacion para el trabajo como Web Developer_
 
 ## Instalación e implementación  🔧
 
